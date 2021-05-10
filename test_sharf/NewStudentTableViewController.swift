@@ -96,7 +96,15 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     
     
     func showAlert () {
-        let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержаться только русские/английские символы без пробелов. Score только цифры от 1 до 5", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержать только русские/английские символы без пробелов.", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlertScore () {
+        let alert = UIAlertController(title: "Внимание!", message: "'Score' должен содержать только цифру от 1 до 5", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okButton)
         
@@ -139,11 +147,14 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
         let score = Validator().isNumValid(scoreTextField.text ?? "")
           
         if identifier == "saveSegue" {
-            if !name || !surname || !score {
-                // Return false to cancel segue with identified Edit Profile
+            if !name || !surname {
+                // Return false to cancel segue with identified
                 showAlert()
-                return false
+                
+            } else if !score {
+                showAlertScore()
             }
+            return false
         }
         return true
     }
