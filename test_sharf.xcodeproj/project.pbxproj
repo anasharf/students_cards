@@ -14,6 +14,10 @@
 		B4FD69C6264861FB00A6B08C /* test_sharf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69C4264861FB00A6B08C /* test_sharf.xcdatamodeld */; };
 		B4FD69C8264861FE00A6B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C7264861FE00A6B08C /* Assets.xcassets */; };
 		B4FD69CB264861FE00A6B08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C9264861FE00A6B08C /* LaunchScreen.storyboard */; };
+		B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69D32648643500A6B08C /* CardsTableViewController.swift */; };
+		B4FD69DB264874AE00A6B08C /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */; };
+		B4FD69DF2648777D00A6B08C /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69DE2648777D00A6B08C /* StudentModel.swift */; };
+		B4FD69E52648873400A6B08C /* NewStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		B4FD69C7264861FE00A6B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4FD69CA264861FE00A6B08C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4FD69CC264861FE00A6B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4FD69D32648643500A6B08C /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
+		B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
+		B4FD69DE2648777D00A6B08C /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
+		B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,10 @@
 				B4FD69BB264861FB00A6B08C /* AppDelegate.swift */,
 				B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */,
 				B4FD69BF264861FB00A6B08C /* ViewController.swift */,
+				B4FD69D32648643500A6B08C /* CardsTableViewController.swift */,
+				B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */,
+				B4FD69DE2648777D00A6B08C /* StudentModel.swift */,
+				B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */,
 				B4FD69C1264861FB00A6B08C /* Main.storyboard */,
 				B4FD69C7264861FE00A6B08C /* Assets.xcassets */,
 				B4FD69C9264861FE00A6B08C /* LaunchScreen.storyboard */,
@@ -140,10 +152,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4FD69DF2648777D00A6B08C /* StudentModel.swift in Sources */,
 				B4FD69C0264861FB00A6B08C /* ViewController.swift in Sources */,
 				B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */,
+				B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */,
 				B4FD69C6264861FB00A6B08C /* test_sharf.xcdatamodeld in Sources */,
 				B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */,
+				B4FD69E52648873400A6B08C /* NewStudentTableViewController.swift in Sources */,
+				B4FD69DB264874AE00A6B08C /* CardsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +309,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4W4X2D24NK;
 				INFOPLIST_FILE = test_sharf/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4W4X2D24NK;
 				INFOPLIST_FILE = test_sharf/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
