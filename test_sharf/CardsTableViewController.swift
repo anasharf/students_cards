@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardsTableViewController: UITableViewController {
+class CardsTableViewController: UITableViewController, UITextFieldDelegate  {
     
     var objects = [
         Student(name: "Ana", surname: "Sharf", score: "5"),

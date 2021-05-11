@@ -23,7 +23,11 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        if #available(iOS 11.0, *) {
+            scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        } else {
+            // Fallback on earlier versions
+        }
                 scoreTextField.delegate = self
         updateUI()
         updateSaveButtonState()
