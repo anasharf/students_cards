@@ -55,11 +55,14 @@ class CardsTableViewController: UITableViewController {
         guard segue.identifier == "editSegue" else { return }
         let indexPath = tableView.indexPathForSelectedRow!
 //        let student = Base.shared.studentsInfo[indexPath.row]
+//        let index = indexPath.row
         let navigationVC = segue.destination as! NewViewController
         navigationVC.title = "Edit"
-        var name = Base.shared.studentsInfo[indexPath.row].name
-        var surname = Base.shared.studentsInfo[indexPath.row].surname
-        var score = Base.shared.studentsInfo[indexPath.row].score
+        navigationVC.tableIndex = indexPath.row
+//        navigationVC.nameTextField=
+//        let name = Base.shared.studentsInfo[indexPath.row].name
+//        let surname = Base.shared.studentsInfo[indexPath.row].surname
+//        let score = Base.shared.studentsInfo[indexPath.row].score
 
     }
 

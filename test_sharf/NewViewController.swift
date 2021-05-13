@@ -21,6 +21,7 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     
 //    var student = Student(name: "", surname: "", score: "")
 
+    var tableIndex: Int = 0
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -30,16 +31,17 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameTextField.text = defaults.string(forKey: KeysDefaults.keyName)
-        surnameTextField.text = defaults.string(forKey: KeysDefaults.keySurname)
-        scoreTextField.text = defaults.string(forKey: KeysDefaults.keyScore)
+//        nameTextField.text = defaults.string(forKey: KeysDefaults.keyName)
+//        surnameTextField.text = defaults.string(forKey: KeysDefaults.keySurname)
+//        scoreTextField.text = defaults.string(forKey: KeysDefaults.keyScore)
         
         if #available(iOS 11.0, *) {
             scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         } else {
             // Fallback on earlier versions
         }
-        scoreTextField.delegate = self
+//        scoreTextField.delegate = self
+        updateUI()
     }
     
     @IBAction func saveButton(_ sender: UIButton) {
@@ -60,7 +62,9 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func updateUI() {
-//        nameTextField.text = name.name
+        nameTextField.text = Base.shared.studentsInfo[tableIndex].name
+        surnameTextField.text = Base.shared.studentsInfo[tableIndex].surname
+        scoreTextField.text = Base.shared.studentsInfo[tableIndex].score
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
