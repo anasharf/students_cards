@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CardsTableViewController: UITableViewController, UITextFieldDelegate  {
+class CardsTableViewController: UITableViewController {
     
     var objects = [
         Student(name: "Ana", surname: "Sharf", score: "5"),
@@ -28,8 +28,6 @@ class CardsTableViewController: UITableViewController, UITextFieldDelegate  {
         guard segue.identifier == "saveSegue" else { return }
         let sourceVC = segue.source as! NewStudentTableViewController
         let student = sourceVC.student
-        
-        
         // редактирование или добавление новой ячейки
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
