@@ -192,7 +192,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="OQi-SE-iND">
                             <connections>
-                                <segue destination="fpy-KR-xSu" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="bTJ-fB-klX"/>
+                                <action selector="saveAction:" destination="mY3-qH-85A" id="Z9m-TZ-pSp"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -247,7 +247,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="jLF-hz-1ph"/>
+        <segue reference="zu5-2D-iy0"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

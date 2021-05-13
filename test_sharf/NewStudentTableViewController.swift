@@ -7,9 +7,19 @@
 
 import UIKit
 
+struct KeysDefaults {
+    
+    static let keyName = "nameKey"
+    static let keySurname = "surnameKey"
+    static let keyScore = "scoreKey"
+    
+}
+
 class NewStudentTableViewController: UITableViewController, UITextFieldDelegate {
     
-    var student = Student(name: "", surname: "", score: "")
+    let defaults = UserDefaults.standard
+    
+//    var student = Student(name: "", surname: "", score: "")
     
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,15 +33,40 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        nameTextField.text = defaults.string(forKey: KeysDefaults.keyName)
+        surnameTextField.text = defaults.string(forKey: KeysDefaults.keySurname)
+        scoreTextField.text = defaults.string(forKey: KeysDefaults.keyScore)
+
+        
         if #available(iOS 11.0, *) {
             scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         } else {
             // Fallback on earlier versions
         }
-                scoreTextField.delegate = self
-        updateUI()
+        scoreTextField.delegate = self
+//        updateUI()
         updateSaveButtonState()
     }
+    
+    
+    @IBAction func saveAction(_ sender: Any?) {
+        
+        let name = nameTextField.text ?? ""
+        let surname = surnameTextField.text ?? ""
+        let score = scoreTextField.text ?? ""
+        
+        if Validator().isNumValid(score) && Validator().isNameValid(surname) && Validator().isNameValid(name){
+            Base.shared.saveInfo(name: name, surname: surname, score: score)
+            self.navigationController?.popViewController(animated: true)
+        } else if !Validator().isNumValid(score) {
+            showScoreAlert()
+        } else if !Validator().isNumValid(name) || !Validator().isNumValid(surname){
+            showAlert()
+        }
+    }
+    
+    
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             guard let textFieldScore = scoreTextField.text,
@@ -119,11 +154,11 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     
     //  обновлять интерфейс
     
-    private func updateUI() {
-        nameTextField.text = student.name
-        surnameTextField.text = student.surname
-        scoreTextField.text = student.score
-    }
+//    private func updateUI() {
+//        nameTextField.text = student.name
+//        surnameTextField.text = student.surname
+//        scoreTextField.text = student.score
+//    }
     
     @IBAction func textChanged(_ sender: UITextField) {
         updateSaveButtonState()
@@ -142,7 +177,7 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
         
 
 
-        self.student = Student(name: name, surname: surname, score: score)
+//        self.student = Student(name: name, surname: surname, score: score)
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {

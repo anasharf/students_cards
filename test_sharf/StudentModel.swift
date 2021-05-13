@@ -7,9 +7,57 @@
 
 import Foundation
 
-struct Student {
-    var name: String
-    var surname: String
-    var score: String
+
+
+class Base {
     
+    static let shared = Base()
+    
+    let defaults = UserDefaults.standard
+    struct Student:Codable {
+        var name: String
+        var surname: String
+        var score: String
+        var title: String {
+            return "\(name) \(surname), Балл: \(score)"
+        }
+        
+    }
+    
+    var studentsInfo:[Student] {
+        
+        get {
+            if let data = defaults.value(forKey: "studentsInfo") as? Data{
+                return try! PropertyListDecoder().decode([Student].self , from: data)
+            } else {
+                return [Student]()
+            }
+        }
+        
+        set{
+            if let data = try? PropertyListEncoder().encode(newValue){
+                defaults.set(data, forKey: "studentsInfo")
+            }
+        }
+    }
+    
+    func saveInfo(name:String, surname:String, score:String){
+        let info = Student(name: name, surname: surname, score: score)
+        studentsInfo.insert(info, at: 0)
+    }
+    
+//    private static var nameKey: String = "nameKey"
+//
+//    public static var nameValue: String {
+//        set {
+//            UserDefaults.standard.set(newValue, forKey: nameKey)
+//        }
+//        get {
+//            return UserDefaults.standard.string(forKey: nameKey) ?? ""
+//        }
+//    }
 }
+
+
+
+
