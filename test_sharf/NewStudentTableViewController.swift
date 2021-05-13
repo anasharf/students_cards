@@ -23,7 +23,11 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        if #available(iOS 11.0, *) {
+            scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
+        } else {
+            // Fallback on earlier versions
+        }
                 scoreTextField.delegate = self
         updateUI()
         updateSaveButtonState()
@@ -41,6 +45,7 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     
     // доступ к кнопке Save только если все поля заполнены
     private func updateSaveButtonState() {
+        
         let nameText = nameTextField.text ?? ""
         let surenameText = surnameTextField.text ?? ""
         let scoreText = scoreTextField.text ?? ""
@@ -96,13 +101,20 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
     
     
     func showAlert () {
-        let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержаться только русские/английские символы без пробелов. Score только цифры от 1 до 5", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержаться только русские/английские символы без пробелов.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(okButton)
         
         present(alert, animated: true, completion: nil)
     }
     
+    func showScoreAlert() {
+        let alert = UIAlertController(title: "Внимание!", message: "В Score только цифры от 1 до 5", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okButton)
+        
+        present(alert, animated: true, completion: nil)
+    }
     
     
     //  обновлять интерфейс
@@ -139,9 +151,13 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
         let score = Validator().isNumValid(scoreTextField.text ?? "")
           
         if identifier == "saveSegue" {
-            if !name || !surname || !score {
+            if !name || !surname {
                 // Return false to cancel segue with identified Edit Profile
                 showAlert()
+                return false
+            }
+            if !score {
+                showScoreAlert()
                 return false
             }
         }
