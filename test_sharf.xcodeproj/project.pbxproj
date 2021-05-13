@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B48D0658264D941600464F57 /* MyLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48D0657264D941600464F57 /* MyLocalStorage.swift */; };
+		B4CA7D79264DC38C003738BC /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA7D78264DC38C003738BC /* NewViewController.swift */; };
 		B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BB264861FB00A6B08C /* AppDelegate.swift */; };
 		B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */; };
 		B4FD69C3264861FB00A6B08C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C1264861FB00A6B08C /* Main.storyboard */; };
@@ -15,13 +15,11 @@
 		B4FD69C8264861FE00A6B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C7264861FE00A6B08C /* Assets.xcassets */; };
 		B4FD69CB264861FE00A6B08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C9264861FE00A6B08C /* LaunchScreen.storyboard */; };
 		B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69D32648643500A6B08C /* CardsTableViewController.swift */; };
-		B4FD69DB264874AE00A6B08C /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */; };
 		B4FD69DF2648777D00A6B08C /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69DE2648777D00A6B08C /* StudentModel.swift */; };
-		B4FD69E52648873400A6B08C /* NewStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B48D0657264D941600464F57 /* MyLocalStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocalStorage.swift; sourceTree = "<group>"; };
+		B4CA7D78264DC38C003738BC /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		B4FD69B8264861FB00A6B08C /* test_sharf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_sharf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FD69BB264861FB00A6B08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,9 +29,7 @@
 		B4FD69CA264861FE00A6B08C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4FD69CC264861FE00A6B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4FD69D32648643500A6B08C /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
-		B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		B4FD69DE2648777D00A6B08C /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
-		B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,15 +65,13 @@
 				B4FD69BB264861FB00A6B08C /* AppDelegate.swift */,
 				B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */,
 				B4FD69D32648643500A6B08C /* CardsTableViewController.swift */,
-				B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */,
 				B4FD69DE2648777D00A6B08C /* StudentModel.swift */,
-				B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */,
+				B4CA7D78264DC38C003738BC /* NewViewController.swift */,
 				B4FD69C1264861FB00A6B08C /* Main.storyboard */,
 				B4FD69C7264861FE00A6B08C /* Assets.xcassets */,
 				B4FD69C9264861FE00A6B08C /* LaunchScreen.storyboard */,
 				B4FD69CC264861FE00A6B08C /* Info.plist */,
 				B4FD69C4264861FB00A6B08C /* test_sharf.xcdatamodeld */,
-				B48D0657264D941600464F57 /* MyLocalStorage.swift */,
 			);
 			path = test_sharf;
 			sourceTree = "<group>";
@@ -154,12 +148,10 @@
 			files = (
 				B4FD69DF2648777D00A6B08C /* StudentModel.swift in Sources */,
 				B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */,
+				B4CA7D79264DC38C003738BC /* NewViewController.swift in Sources */,
 				B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */,
 				B4FD69C6264861FB00A6B08C /* test_sharf.xcdatamodeld in Sources */,
 				B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */,
-				B4FD69E52648873400A6B08C /* NewStudentTableViewController.swift in Sources */,
-				B48D0658264D941600464F57 /* MyLocalStorage.swift in Sources */,
-				B4FD69DB264874AE00A6B08C /* CardsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,7 +8,7 @@
 import UIKit
 
 class CardsTableViewController: UITableViewController {
-    
+
     
 //
 //    var objects = [
@@ -99,7 +99,7 @@ class CardsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            objects.remove(at: indexPath.row)
+            Base.shared.studentsInfo.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

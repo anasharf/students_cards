@@ -1,8 +1,8 @@
 //
-//  NewStudentTableViewController.swift
+//  NewViewController.swift
 //  test_sharf
 //
-//  Created by Анастасия Шарф on 10.05.2021.
+//  Created by Анастасия Шарф on 13.05.2021.
 //
 
 import UIKit
@@ -15,19 +15,16 @@ struct KeysDefaults {
     
 }
 
-class NewStudentTableViewController: UITableViewController, UITextFieldDelegate {
-    
+class NewViewController: UIViewController, UITextFieldDelegate {
+
     let defaults = UserDefaults.standard
     
 //    var student = Student(name: "", surname: "", score: "")
-    
+
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
     @IBOutlet weak var scoreTextField: UITextField!
-    @IBOutlet weak var saveButton: UIBarButtonItem!
-    
-
     
     
     override func viewDidLoad() {
@@ -36,7 +33,6 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
         nameTextField.text = defaults.string(forKey: KeysDefaults.keyName)
         surnameTextField.text = defaults.string(forKey: KeysDefaults.keySurname)
         scoreTextField.text = defaults.string(forKey: KeysDefaults.keyScore)
-
         
         if #available(iOS 11.0, *) {
             scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
@@ -44,12 +40,9 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
             // Fallback on earlier versions
         }
         scoreTextField.delegate = self
-//        updateUI()
-        updateSaveButtonState()
     }
     
-    
-    @IBAction func saveAction(_ sender: Any?) {
+    @IBAction func saveButton(_ sender: UIButton) {
         
         let name = nameTextField.text ?? ""
         let surname = surnameTextField.text ?? ""
@@ -63,11 +56,13 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
         } else if !Validator().isNumValid(name) || !Validator().isNumValid(surname){
             showAlert()
         }
+
     }
     
+    @IBAction func cancelButton(_ sender: UIButton) {
+    }
     
-    
-    
+    // доступ к кнопке Save только если все поля заполнены
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             guard let textFieldScore = scoreTextField.text,
                 let rangeOfTextToReplace = Range(range, in: textFieldScore) else {
@@ -78,16 +73,6 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
             return count <= 1
         }
     
-    // доступ к кнопке Save только если все поля заполнены
-    private func updateSaveButtonState() {
-        
-        let nameText = nameTextField.text ?? ""
-        let surenameText = surnameTextField.text ?? ""
-        let scoreText = scoreTextField.text ?? ""
-        
-        saveButton.isEnabled = !nameText.isEmpty && !surenameText.isEmpty && !scoreText.isEmpty
-
-    }
     
     struct ValidationError: Error {
         var message: String
@@ -132,9 +117,7 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
             }
         }
     }
-    
-    
-    
+
     func showAlert () {
         let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержаться только русские/английские символы без пробелов.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -151,51 +134,4 @@ class NewStudentTableViewController: UITableViewController, UITextFieldDelegate 
         present(alert, animated: true, completion: nil)
     }
     
-    
-    //  обновлять интерфейс
-    
-//    private func updateUI() {
-//        nameTextField.text = student.name
-//        surnameTextField.text = student.surname
-//        scoreTextField.text = student.score
-//    }
-    
-    @IBAction func textChanged(_ sender: UITextField) {
-        updateSaveButtonState()
-        //        textField(nameTextField)
-        
-    }
-    // переопределить родительский класс?? что это за супер здесь и зачем оно здесь??
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        guard segue.identifier == "saveSegue" else { return }
-        
-        let name = nameTextField.text ?? ""
-        let surname = surnameTextField.text ?? ""
-        let score = scoreTextField.text ??  ""
-        
-
-
-//        self.student = Student(name: name, surname: surname, score: score)
-    }
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        let name = Validator().isNameValid(nameTextField.text ?? "")
-        let surname = Validator().isNameValid(surnameTextField.text ?? "")
-        let score = Validator().isNumValid(scoreTextField.text ?? "")
-          
-        if identifier == "saveSegue" {
-            if !name || !surname {
-                // Return false to cancel segue with identified Edit Profile
-                showAlert()
-                return false
-            }
-            if !score {
-                showScoreAlert()
-                return false
-            }
-        }
-        return true
-    }
 }
