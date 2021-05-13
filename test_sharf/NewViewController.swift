@@ -59,6 +59,10 @@ class NewViewController: UIViewController, UITextFieldDelegate {
 
     }
     
+    private func updateUI() {
+//        nameTextField.text = name.name
+    }
+    
     @IBAction func cancelButton(_ sender: UIButton) {
     }
     

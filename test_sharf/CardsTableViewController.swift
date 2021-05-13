@@ -50,16 +50,18 @@ class CardsTableViewController: UITableViewController {
 //        }
 //    }
 
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        super.prepare(for: segue, sender: sender)
-//        guard segue.identifier == "editStudent" else { return }
-//        let indexPath = tableView.indexPathForSelectedRow!
-//        let student = objects[indexPath.row]
-//        let navigationVC = segue.destination as! UINavigationController
-//        let newStudentVC = navigationVC.topViewController as! NewStudentTableViewController
-//        newStudentVC.student = student
-//        newStudentVC.title = "Edit"
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        guard segue.identifier == "editSegue" else { return }
+        let indexPath = tableView.indexPathForSelectedRow!
+//        let student = Base.shared.studentsInfo[indexPath.row]
+        let navigationVC = segue.destination as! NewViewController
+        navigationVC.title = "Edit"
+        var name = Base.shared.studentsInfo[indexPath.row].name
+        var surname = Base.shared.studentsInfo[indexPath.row].surname
+        var score = Base.shared.studentsInfo[indexPath.row].score
+
+    }
 
 
 
