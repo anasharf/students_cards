@@ -19,7 +19,7 @@ class Base {
         var surname: String
         var score: String
         var title: String {
-            return "\(name) \(surname), Балл: \(score)"
+            return "\(name), \(surname), Балл: \(score)"
         }
         
     }
@@ -44,6 +44,25 @@ class Base {
     func saveInfo(name:String, surname:String, score:String){
         let info = Student(name: name, surname: surname, score: score)
         studentsInfo.insert(info, at: 0)
+        print("OBJ = \(name) \(surname) \(score)")
+    }
+    
+    func updateInfo(name: String, surname: String, score: String, dataIndex: Int){
+        guard let data = defaults.data(forKey: "studentsInfo") else { return }
+        
+        defaults.dictionaryRepresentation()
+        
+        guard var obj = try? PropertyListDecoder().decode([Student].self, from: data) else { return }
+        
+        print(obj)
+        obj[dataIndex].name = name
+        obj[dataIndex].surname = surname
+        obj[dataIndex].score = score
+//        print("OBJ = \(obj.name) \(obj.surname) \(obj.score)")
+        guard let newData = try? PropertyListEncoder().encode(obj) else { return }
+
+        defaults.set(newData, forKey: "studentsInfo")
+        
     }
     
 //    private static var nameKey: String = "nameKey"

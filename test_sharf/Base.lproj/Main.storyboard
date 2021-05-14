@@ -74,7 +74,7 @@
                     <navigationItem key="navigationItem" id="Tbk-Js-xrR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="sqB-NU-wRn">
                             <connections>
-                                <segue destination="J8g-HR-IAR" kind="show" id="laK-25-cEj"/>
+                                <segue destination="J8g-HR-IAR" kind="show" identifier="newStudentSegue" id="laK-25-cEj"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -118,6 +118,7 @@
                                         </state>
                                         <connections>
                                             <action selector="saveButton:" destination="J8g-HR-IAR" eventType="touchUpInside" id="979-GK-m40"/>
+                                            <segue destination="bNU-4c-pLl" kind="unwind" identifier="saveSegue" unwindAction="unwindSegueWithSegue:" id="u4F-XL-Sj2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKP-rl-twK">
@@ -150,6 +151,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZIH-hh-s3j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="bNU-4c-pLl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1919" y="72"/>
         </scene>
@@ -173,7 +175,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="m6R-AF-bwR"/>
+        <segue reference="laK-25-cEj"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">

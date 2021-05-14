@@ -7,7 +7,7 @@
 
 import UIKit
 
-let base = [Base.Student(name: "", surname: "", score: "")]
+//let base = [Base.shared.studentsInfo]
 
 class CardsTableViewController: UITableViewController {
 
@@ -36,33 +36,60 @@ class CardsTableViewController: UITableViewController {
 
 //    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
 //        guard segue.identifier == "saveSegue" else { return }
-//        let sourceVC = segue.source as! NewStudentTableViewController
-//        let student = sourceVC.student
+//        let sourceVC = segue.source as! NewViewController
+//        let name = sourceVC.nameTextField.text ?? ""
+//        let surname = sourceVC.surnameTextField.text ?? ""
+//        let score = sourceVC.scoreTextField.text ?? ""
 //
 //
 //        // редактирование или добавление новой ячейки
 //
 //        if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//            objects[selectedIndexPath.row] = student
+//            Base.shared.updateInfo(name: name, surname: surname, score: score)
 //            tableView.reloadRows(at: [selectedIndexPath], with: .fade)
-//        } else {
-//            let newIndexPath = IndexPath(row: objects.count, section: 0)
-//            objects.append(student)
-//            tableView.insertRows(at: [newIndexPath], with: .fade)
-//        }
+////        } else {
+////            let newIndexPath = IndexPath(row: objects.count, section: 0)
+////            objects.append(student)
+////            tableView.insertRows(at: [newIndexPath], with: .fade)
+////        }
 //    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        super.prepare(for: segue, sender: sender)
+//        guard segue.identifier == "editStudent" else { return }
+//        let indexPath = tableView.indexPathForSelectedRow!
+//        let student = objects[indexPath.row]
+//        let navigationVC = segue.destination as! UINavigationController
+//        let newStudentVC = navigationVC.topViewController as! NewStudentTableViewController
+//        newStudentVC.student = student
+//        newStudentVC.title = "Edit"
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-        guard segue.identifier == "editSegue" else { return }
-        guard let destination = segue.destination as? NewViewController else { return }
-        let indexPath = tableView.indexPathForSelectedRow!
+        if segue.identifier == "editSegue" {
+            let destination = segue.destination as! NewViewController
+            let indexPath = tableView.indexPathForSelectedRow!
+            destination.title = "Edit"
+            destination.tableIndex = indexPath.row
+            destination.saveActionType = "Edit"
+        } else if segue.identifier == "newStudentSegue" {
+            let destination = segue.destination as! NewViewController
+            destination.title = "Add new student"
+            destination.saveActionType = "Add"
+        }
+//        guard segue.identifier == "editSegue" else { return }
+//        guard let destination = segue.destination as? NewViewController else { return }
         
-        destination.title = "Edit"
-        destination.tableIndex = indexPath.row
-        destination.nameTextField.text = Base.shared.studentsInfo[indexPath.row].name
-        destination.surnameTextField.text = Base.shared.studentsInfo[indexPath.row].surname
-        destination.scoreTextField.text = Base.shared.studentsInfo[indexPath.row].score
+//        let indexPath = tableView.indexPathForSelectedRow!
+//        let student = base[indexPath.row]
+//        destination.nameTextField.text = base.
+        
+        
+//        destination.title = "Edit"
+//        destination.tableIndex = indexPath.row
+//        destination.nameTextField.text = Base.shared.studentsInfo[indexPath.row].name
+//        destination.surnameTextField.text = Base.shared.studentsInfo[indexPath.row].surname
+//        destination.scoreTextField.text = Base.shared.studentsInfo[indexPath.row].score
 
     }
 
@@ -96,6 +123,13 @@ class CardsTableViewController: UITableViewController {
 //        cell.set(object: object)
 //
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let studentLine = Base.shared.studentsInfo[indexPath.row]
+        
+        
+        performSegue(withIdentifier: "editSegue", sender: nil)
     }
 
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

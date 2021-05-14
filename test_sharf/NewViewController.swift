@@ -16,10 +16,13 @@ struct KeysDefaults {
 }
 
 class NewViewController: UIViewController, UITextFieldDelegate {
-
+    
+//    var student = [Base.Student(name: <#T##String#>, surname: <#T##String#>, score: <#T##String#>)]
+    var saveActionType: String = "Add"
+    var tableIndex: Int = 0
     let defaults = UserDefaults.standard
     
-    var tableIndex: Int = 0
+    
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var surnameTextField: UITextField!
@@ -50,8 +53,13 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         
             
         if Validator().isNumValid(score) && Validator().isNameValid(surname) && Validator().isNameValid(name){
+            if saveActionType == "Add" {
             Base.shared.saveInfo(name: name, surname: surname, score: score)
             self.navigationController?.popViewController(animated: true)
+            } else if saveActionType == "Edit" {
+                Base.shared.updateInfo(name: name, surname: surname, score: score, dataIndex: tableIndex)
+                self.navigationController?.popViewController(animated: true)
+            }
         } else if !Validator().isNumValid(score) {
             showScoreAlert()
         } else if !Validator().isNumValid(name) || !Validator().isNumValid(surname){
@@ -63,9 +71,15 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func updateUI() {
-        nameTextField.text = Base.shared.studentsInfo[tableIndex].name
-        surnameTextField.text = Base.shared.studentsInfo[tableIndex].surname
-        scoreTextField.text = Base.shared.studentsInfo[tableIndex].score
+        if saveActionType == "Add" {
+            nameTextField.text = ""
+            surnameTextField.text = ""
+            scoreTextField.text = ""
+        } else if saveActionType == "Edit" {
+            nameTextField.text = Base.shared.studentsInfo[tableIndex].name
+            surnameTextField.text = Base.shared.studentsInfo[tableIndex].surname
+            scoreTextField.text = Base.shared.studentsInfo[tableIndex].score
+        }
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
@@ -115,6 +129,16 @@ class NewViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+            guard let textFieldScore = scoreTextField.text,
+                let rangeOfTextToReplace = Range(range, in: textFieldScore) else {
+                    return false
+            }
+            let substringToReplace = textFieldScore[rangeOfTextToReplace]
+            let count = textFieldScore.count - substringToReplace.count + string.count
+            return count <= 1
+        }
 
     func showAlert () {
         let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержаться только русские/английские символы без пробелов.", preferredStyle: .alert)
