@@ -19,8 +19,6 @@ class NewViewController: UIViewController, UITextFieldDelegate {
 
     let defaults = UserDefaults.standard
     
-//    var student = Student(name: "", surname: "", score: "")
-
     var tableIndex: Int = 0
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -38,9 +36,8 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         if #available(iOS 11.0, *) {
             scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
         } else {
-            // Fallback on earlier versions
         }
-//        scoreTextField.delegate = self
+        scoreTextField.delegate = self
         updateUI()
     }
     
@@ -50,6 +47,8 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         let surname = surnameTextField.text ?? ""
         let score = scoreTextField.text ?? ""
         
+        
+            
         if Validator().isNumValid(score) && Validator().isNameValid(surname) && Validator().isNameValid(name){
             Base.shared.saveInfo(name: name, surname: surname, score: score)
             self.navigationController?.popViewController(animated: true)
@@ -58,6 +57,8 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         } else if !Validator().isNumValid(name) || !Validator().isNumValid(surname){
             showAlert()
         }
+        
+        
 
     }
     
@@ -69,17 +70,6 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func cancelButton(_ sender: UIButton) {
     }
-    
-    // доступ к кнопке Save только если все поля заполнены
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            guard let textFieldScore = scoreTextField.text,
-                let rangeOfTextToReplace = Range(range, in: textFieldScore) else {
-                    return false
-            }
-            let substringToReplace = textFieldScore[rangeOfTextToReplace]
-            let count = textFieldScore.count - substringToReplace.count + string.count
-            return count <= 1
-        }
     
     
     struct ValidationError: Error {

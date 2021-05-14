@@ -7,6 +7,8 @@
 
 import UIKit
 
+let base = [Base.Student(name: "", surname: "", score: "")]
+
 class CardsTableViewController: UITableViewController {
 
     
@@ -53,16 +55,14 @@ class CardsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         guard segue.identifier == "editSegue" else { return }
+        guard let destination = segue.destination as? NewViewController else { return }
         let indexPath = tableView.indexPathForSelectedRow!
-//        let student = Base.shared.studentsInfo[indexPath.row]
-//        let index = indexPath.row
-        let navigationVC = segue.destination as! NewViewController
-        navigationVC.title = "Edit"
-        navigationVC.tableIndex = indexPath.row
-//        navigationVC.nameTextField=
-//        let name = Base.shared.studentsInfo[indexPath.row].name
-//        let surname = Base.shared.studentsInfo[indexPath.row].surname
-//        let score = Base.shared.studentsInfo[indexPath.row].score
+        
+        destination.title = "Edit"
+        destination.tableIndex = indexPath.row
+        destination.nameTextField.text = Base.shared.studentsInfo[indexPath.row].name
+        destination.surnameTextField.text = Base.shared.studentsInfo[indexPath.row].surname
+        destination.scoreTextField.text = Base.shared.studentsInfo[indexPath.row].score
 
     }
 
