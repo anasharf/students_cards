@@ -7,17 +7,32 @@
 
 import UIKit
 
-//let base = [Base.shared.studentsInfo]
+class CardsTableViewCell: UITableViewCell {
+    
+   
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var surnameLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+    
+    
+
+    func set(object: Base) {
+        // находимся в классе Селл. Селл и есь яейка
+        self.nameLabel.text = object.shared.studentsInfo[0]
+        self.surnameLabel.text = object.Student[1]
+        self.scoreLabel.text = object.studentsInfo[2]
+    }
+
+}
 
 class CardsTableViewController: UITableViewController {
-
     
-//
-//    var objects = [
-//        Student(name: "", surname: "", score: "")
-//    ]
-//
-//
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -68,9 +83,8 @@ class CardsTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         if segue.identifier == "editSegue" {
             let destination = segue.destination as! NewViewController
-            let indexPath = tableView.indexPathForSelectedRow!
             destination.title = "Edit"
-            destination.tableIndex = indexPath.row
+            destination.tableIndex = tableView.indexPathForSelectedRow!.row
             destination.saveActionType = "Edit"
         } else if segue.identifier == "newStudentSegue" {
             let destination = segue.destination as! NewViewController

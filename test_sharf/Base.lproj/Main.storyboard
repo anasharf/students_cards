@@ -36,12 +36,18 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="labelName" value="name"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sharf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KP-vk-dsg">
                                                             <rect key="frame" x="0.0" y="22" width="356" height="22"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="labelName" value="surname"/>
+                                                            </userDefinedRuntimeAttributes>
                                                         </label>
                                                     </subviews>
                                                 </stackView>
@@ -50,6 +56,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="labelName" value="score"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                         </stackView>
@@ -62,6 +71,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="nameLabel" destination="pYZ-kM-FEc" id="ham-Hg-oTs"/>
+                                    <outlet property="scoreLabel" destination="sPL-v8-XPy" id="Z9f-bl-Owj"/>
+                                    <outlet property="surnameLabel" destination="8KP-vk-dsg" id="xqJ-MC-f2R"/>
                                     <segue destination="J8g-HR-IAR" kind="show" identifier="editSegue" id="m6R-AF-bwR"/>
                                 </connections>
                             </tableViewCell>

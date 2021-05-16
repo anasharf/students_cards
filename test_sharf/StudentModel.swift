@@ -19,7 +19,7 @@ class Base {
         var surname: String
         var score: String
         var title: String {
-            return "\(name), \(surname), Балл: \(score)"
+            return "\(name), \(surname), \(score)"
         }
         
     }
