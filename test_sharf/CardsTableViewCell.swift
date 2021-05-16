@@ -2,28 +2,28 @@
 //  CardsTableViewCell.swift
 //  test_sharf
 //
-//  Created by Анастасия Шарф on 09.05.2021.
+//  Created by Анастасия Шарф on 16.05.2021.
 //
 
 import UIKit
 
 class CardsTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var surnameLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
-    func set(object: Student) {
-        // находимся в классе Селл. Селл и есь яейка
-        self.nameLabel.text = object.name
-        self.surnameLabel.text = object.surname
-        self.scoreLabel.text = String(object.score)
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var surnameLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+        // Configure the view for the selected state
     }
-
+    
 }

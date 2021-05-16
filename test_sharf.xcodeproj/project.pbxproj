@@ -7,33 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4CA7D79264DC38C003738BC /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA7D78264DC38C003738BC /* NewViewController.swift */; };
+		B4DB438A265161B800885FDF /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB4389265161B800885FDF /* CardsTableViewCell.swift */; };
 		B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BB264861FB00A6B08C /* AppDelegate.swift */; };
 		B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */; };
-		B4FD69C0264861FB00A6B08C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BF264861FB00A6B08C /* ViewController.swift */; };
 		B4FD69C3264861FB00A6B08C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C1264861FB00A6B08C /* Main.storyboard */; };
 		B4FD69C6264861FB00A6B08C /* test_sharf.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69C4264861FB00A6B08C /* test_sharf.xcdatamodeld */; };
 		B4FD69C8264861FE00A6B08C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C7264861FE00A6B08C /* Assets.xcassets */; };
 		B4FD69CB264861FE00A6B08C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C9264861FE00A6B08C /* LaunchScreen.storyboard */; };
 		B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69D32648643500A6B08C /* CardsTableViewController.swift */; };
-		B4FD69DB264874AE00A6B08C /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */; };
 		B4FD69DF2648777D00A6B08C /* StudentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69DE2648777D00A6B08C /* StudentModel.swift */; };
-		B4FD69E52648873400A6B08C /* NewStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4CA7D78264DC38C003738BC /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		B4DB4389265161B800885FDF /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		B4FD69B8264861FB00A6B08C /* test_sharf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_sharf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FD69BB264861FB00A6B08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B4FD69BF264861FB00A6B08C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B4FD69C2264861FB00A6B08C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B4FD69C5264861FB00A6B08C /* test_sharf.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = test_sharf.xcdatamodel; sourceTree = "<group>"; };
 		B4FD69C7264861FE00A6B08C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4FD69CA264861FE00A6B08C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4FD69CC264861FE00A6B08C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4FD69D32648643500A6B08C /* CardsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewController.swift; sourceTree = "<group>"; };
-		B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		B4FD69DE2648777D00A6B08C /* StudentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentModel.swift; sourceTree = "<group>"; };
-		B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStudentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,11 +66,10 @@
 			children = (
 				B4FD69BB264861FB00A6B08C /* AppDelegate.swift */,
 				B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */,
-				B4FD69BF264861FB00A6B08C /* ViewController.swift */,
 				B4FD69D32648643500A6B08C /* CardsTableViewController.swift */,
-				B4FD69DA264874AE00A6B08C /* CardsTableViewCell.swift */,
+				B4DB4389265161B800885FDF /* CardsTableViewCell.swift */,
 				B4FD69DE2648777D00A6B08C /* StudentModel.swift */,
-				B4FD69E42648873400A6B08C /* NewStudentTableViewController.swift */,
+				B4CA7D78264DC38C003738BC /* NewViewController.swift */,
 				B4FD69C1264861FB00A6B08C /* Main.storyboard */,
 				B4FD69C7264861FE00A6B08C /* Assets.xcassets */,
 				B4FD69C9264861FE00A6B08C /* LaunchScreen.storyboard */,
@@ -153,13 +150,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4FD69DF2648777D00A6B08C /* StudentModel.swift in Sources */,
-				B4FD69C0264861FB00A6B08C /* ViewController.swift in Sources */,
 				B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */,
+				B4CA7D79264DC38C003738BC /* NewViewController.swift in Sources */,
 				B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */,
+				B4DB438A265161B800885FDF /* CardsTableViewCell.swift in Sources */,
 				B4FD69C6264861FB00A6B08C /* test_sharf.xcdatamodeld in Sources */,
 				B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */,
-				B4FD69E52648873400A6B08C /* NewStudentTableViewController.swift in Sources */,
-				B4FD69DB264874AE00A6B08C /* CardsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -291,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
