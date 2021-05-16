@@ -83,6 +83,8 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func cancelButton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+
     }
     
     

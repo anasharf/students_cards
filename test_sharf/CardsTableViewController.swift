@@ -7,31 +7,7 @@
 
 import UIKit
 
-class CardsTableViewCell: UITableViewCell {
-    
-   
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var surnameLabel: UILabel!
-    @IBOutlet weak var scoreLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-    
-    
-
-    func set(object: Base) {
-        // находимся в классе Селл. Селл и есь яейка
-        self.nameLabel.text = object.shared.studentsInfo[0]
-        self.surnameLabel.text = object.Student[1]
-        self.scoreLabel.text = object.studentsInfo[2]
-    }
-
-}
-
 class CardsTableViewController: UITableViewController {
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +22,6 @@ class CardsTableViewController: UITableViewController {
         
         self.tableView.reloadData()
     }
-    
     
 
 //    @IBAction func unwindSegue(segue: UIStoryboardSegue) {
@@ -121,6 +96,10 @@ class CardsTableViewController: UITableViewController {
 
     //возвращаю ячейку для таблицы, добираемся до ячейки через cell ( в сториборд уже была создана, не надо регистрировать. По идентифекатору нам доступна созданая ячейка, но ее тип - ТэйблВьюСел, надо КардсТВС. Делаем ЭЗ! и нужный класс
 
+//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 70
+//    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell:UITableViewCell!
         
@@ -129,11 +108,19 @@ class CardsTableViewController: UITableViewController {
         } else {
             cell = UITableViewCell()
         }
-        
+//        cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CardsTableViewCell
         cell.textLabel!.text = Base.shared.studentsInfo[indexPath.row].title
         
+        
+        
+//        let item = Base.shared.studentsInfo[indexPath.row]
+//        studentCell.nameLabel.text = item.name
+//        studentCell.surnameLabel.text = item.surname
+//        studentCell.scoreLabel.text = item.score
+        
+
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "studentCell", for: indexPath) as! CardsTableViewCell
-//        let object = objects[indexPath.row]
+//        let object = objects[i ndexPath.row]
 //        cell.set(object: object)
 //
         return cell

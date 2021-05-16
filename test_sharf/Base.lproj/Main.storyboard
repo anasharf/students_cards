@@ -71,9 +71,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="pYZ-kM-FEc" id="ham-Hg-oTs"/>
-                                    <outlet property="scoreLabel" destination="sPL-v8-XPy" id="Z9f-bl-Owj"/>
-                                    <outlet property="surnameLabel" destination="8KP-vk-dsg" id="xqJ-MC-f2R"/>
+                                    <outlet property="nameLabel" destination="pYZ-kM-FEc" id="G5g-Qk-1xV"/>
+                                    <outlet property="scoreLabel" destination="sPL-v8-XPy" id="rRB-OQ-LXo"/>
+                                    <outlet property="surnameLabel" destination="8KP-vk-dsg" id="oku-xS-06o"/>
                                     <segue destination="J8g-HR-IAR" kind="show" identifier="editSegue" id="m6R-AF-bwR"/>
                                 </connections>
                             </tableViewCell>

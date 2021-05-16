@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B4CA7D79264DC38C003738BC /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CA7D78264DC38C003738BC /* NewViewController.swift */; };
+		B4DB438A265161B800885FDF /* CardsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DB4389265161B800885FDF /* CardsTableViewCell.swift */; };
 		B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BB264861FB00A6B08C /* AppDelegate.swift */; };
 		B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */; };
 		B4FD69C3264861FB00A6B08C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4FD69C1264861FB00A6B08C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		B4CA7D78264DC38C003738BC /* NewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
+		B4DB4389265161B800885FDF /* CardsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsTableViewCell.swift; sourceTree = "<group>"; };
 		B4FD69B8264861FB00A6B08C /* test_sharf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test_sharf.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FD69BB264861FB00A6B08C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				B4FD69BB264861FB00A6B08C /* AppDelegate.swift */,
 				B4FD69BD264861FB00A6B08C /* SceneDelegate.swift */,
 				B4FD69D32648643500A6B08C /* CardsTableViewController.swift */,
+				B4DB4389265161B800885FDF /* CardsTableViewCell.swift */,
 				B4FD69DE2648777D00A6B08C /* StudentModel.swift */,
 				B4CA7D78264DC38C003738BC /* NewViewController.swift */,
 				B4FD69C1264861FB00A6B08C /* Main.storyboard */,
@@ -150,6 +153,7 @@
 				B4FD69BC264861FB00A6B08C /* AppDelegate.swift in Sources */,
 				B4CA7D79264DC38C003738BC /* NewViewController.swift in Sources */,
 				B4FD69D42648643500A6B08C /* CardsTableViewController.swift in Sources */,
+				B4DB438A265161B800885FDF /* CardsTableViewCell.swift in Sources */,
 				B4FD69C6264861FB00A6B08C /* test_sharf.xcdatamodeld in Sources */,
 				B4FD69BE264861FB00A6B08C /* SceneDelegate.swift in Sources */,
 			);
