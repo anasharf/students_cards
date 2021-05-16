@@ -58,23 +58,12 @@ class Base {
         obj[dataIndex].name = name
         obj[dataIndex].surname = surname
         obj[dataIndex].score = score
-//        print("OBJ = \(obj.name) \(obj.surname) \(obj.score)")
         guard let newData = try? PropertyListEncoder().encode(obj) else { return }
-
+        
         defaults.set(newData, forKey: "studentsInfo")
         
     }
     
-//    private static var nameKey: String = "nameKey"
-//
-//    public static var nameValue: String {
-//        set {
-//            UserDefaults.standard.set(newValue, forKey: nameKey)
-//        }
-//        get {
-//            return UserDefaults.standard.string(forKey: nameKey) ?? ""
-//        }
-//    }
 }
 
 

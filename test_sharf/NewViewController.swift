@@ -17,7 +17,6 @@ struct KeysDefaults {
 
 class NewViewController: UIViewController, UITextFieldDelegate {
     
-//    var student = [Base.Student(name: <#T##String#>, surname: <#T##String#>, score: <#T##String#>)]
     var saveActionType: String = "Add"
     var tableIndex: Int = 0
     let defaults = UserDefaults.standard
@@ -31,10 +30,6 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-//        nameTextField.text = defaults.string(forKey: KeysDefaults.keyName)
-//        surnameTextField.text = defaults.string(forKey: KeysDefaults.keySurname)
-//        scoreTextField.text = defaults.string(forKey: KeysDefaults.keyScore)
         
         if #available(iOS 11.0, *) {
             scoreTextField.smartInsertDeleteType = UITextSmartInsertDeleteType.no
@@ -51,11 +46,11 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         let score = scoreTextField.text ?? ""
         
         
-            
+        
         if Validator().isNumValid(score) && Validator().isNameValid(surname) && Validator().isNameValid(name){
             if saveActionType == "Add" {
-            Base.shared.saveInfo(name: name, surname: surname, score: score)
-            self.navigationController?.popViewController(animated: true)
+                Base.shared.saveInfo(name: name, surname: surname, score: score)
+                self.navigationController?.popViewController(animated: true)
             } else if saveActionType == "Edit" {
                 Base.shared.updateInfo(name: name, surname: surname, score: score, dataIndex: tableIndex)
                 self.navigationController?.popViewController(animated: true)
@@ -67,7 +62,7 @@ class NewViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-
+        
     }
     
     private func updateUI() {
@@ -84,7 +79,7 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func cancelButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-
+        
     }
     
     
@@ -133,15 +128,15 @@ class NewViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            guard let textFieldScore = scoreTextField.text,
-                let rangeOfTextToReplace = Range(range, in: textFieldScore) else {
-                    return false
-            }
-            let substringToReplace = textFieldScore[rangeOfTextToReplace]
-            let count = textFieldScore.count - substringToReplace.count + string.count
-            return count <= 1
+        guard let textFieldScore = scoreTextField.text,
+              let rangeOfTextToReplace = Range(range, in: textFieldScore) else {
+            return false
         }
-
+        let substringToReplace = textFieldScore[rangeOfTextToReplace]
+        let count = textFieldScore.count - substringToReplace.count + string.count
+        return count <= 1
+    }
+    
     func showAlert () {
         let alert = UIAlertController(title: "Внимание!", message: "Name и Surname должны содержаться только русские/английские символы без пробелов.", preferredStyle: .alert)
         let okButton = UIAlertAction(title: "OK", style: .default, handler: nil)
